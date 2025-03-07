@@ -12,4 +12,17 @@ public abstract class NamedEntity {
     public String toString() {
         return name;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        NamedEntity named = (NamedEntity) o;
+        return named.getName().equals(getName());
+    }
+
+    @Override
+    public int hashCode() {
+        return name.hashCode();
+    }
 }

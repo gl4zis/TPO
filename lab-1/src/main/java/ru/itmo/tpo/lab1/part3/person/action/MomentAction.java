@@ -5,8 +5,4 @@ public interface MomentAction extends Action {
     default boolean isActive() {
         return true;
     }
-
-    default void print() {
-        System.out.printf("\t%s%s\n", isTry() ? "попытался " : "", this);
-    }
 }

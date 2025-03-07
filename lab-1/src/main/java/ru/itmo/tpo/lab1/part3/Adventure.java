@@ -40,11 +40,11 @@ public class Adventure {
                 .inFlight(Location.HORSE_HEAD_NEBULA, Direction.FROM)
                 .build();
         System.out.println(starship);
-        starship.printState();
+        System.out.println(starship.getState());
 
         zaford.addAction(new Settle(StarshipPlace.PALM_ON_BRIDGE, Relation.UNDER));
         zaford.addAction(new UtilizeDish(new BulkBlaster(zaford), true));
-        ford.printActions();
+        System.out.println(zaford.getActionsAsString());
 
         var life = new Subject("жизнь");
         var lifeConsequences = new Subject("последствия жизни");
@@ -52,22 +52,22 @@ public class Adventure {
 
         ford.addAction(sittingInEdge);
         ford.addAction(new Discuss(trillian, Set.of(life, lifeConsequences), false));
-        ford.printActions();
+        System.out.println(ford.getActionsAsString());
 
         trillian.addAction(sittingInEdge);
         trillian.addAction(new Discuss(ford, Set.of(life, lifeConsequences), false));
-        trillian.printActions();
+        System.out.println(trillian.getActionsAsString());
 
         var guidebook = new Book("Путеводитель для автостопщиков", ford, GUIDEBOOK_SENTENCES);
 
         arthur.addAction(new Lie(StarshipPlace.ARTUR_CABIN, Relation.IN));
         arthur.addAction(new Flip(guidebook));
-        arthur.printActions();
+        System.out.println(arthur.getActionsAsString());
 
         arthur.addAction(new Think(Set.of(new Subject("пора начинать знакомиться с местными обычаями"))));
         arthur.addAction(new Read(guidebook, false));
-        arthur.printActions();
-        arthur.readAll();
+        System.out.println(arthur.getActionsAsString());
+        System.out.println(arthur.readAll());
         arthur.interrupt(new Intercom());
 
         zaford.momentAction(new Say("Эй, землянин, ты есть хочешь", arthur, Say.Type.ASK));

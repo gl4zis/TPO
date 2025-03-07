@@ -9,7 +9,7 @@ public interface Action {
         return false;
     }
 
-    default void print() {
-        System.out.printf("\t%s%s\n", isTry() ? "пытается " : "", this);
+    default String prettyString() {
+        return String.format("\t%s%s\n", isTry() ? "пытается " : "", this);
     }
 }

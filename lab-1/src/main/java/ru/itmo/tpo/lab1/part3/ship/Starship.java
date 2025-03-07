@@ -1,6 +1,7 @@
 package ru.itmo.tpo.lab1.part3.ship;
 
 
+import lombok.Getter;
 import ru.itmo.tpo.lab1.part3.person.Person;
 import ru.itmo.tpo.lab1.part3.person.Crew;
 import ru.itmo.tpo.lab1.part3.ship.state.InFlight;
@@ -9,6 +10,7 @@ import ru.itmo.tpo.lab1.part3.ship.state.StarshipState;
 import ru.itmo.tpo.lab1.part3.util.Direction;
 import ru.itmo.tpo.lab1.part3.util.NamedEntity;
 
+@Getter
 public class Starship extends NamedEntity {
     private final Crew crew;
     private StarshipState state;
@@ -28,10 +30,6 @@ public class Starship extends NamedEntity {
             throw new IllegalStateException("Starship isn't moving");
         }
         this.state = new Parked(location);
-    }
-
-    public void printState() {
-        System.out.println(state);
     }
 
     public static Builder builder(String name) {

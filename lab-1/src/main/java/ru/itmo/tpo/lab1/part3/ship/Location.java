@@ -4,7 +4,8 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public enum Location {
-    HORSE_HEAD_NEBULA("Туманность Конской Головы");
+    HORSE_HEAD_NEBULA("Туманность Конской Головы"),
+    PLANET_EARTH("Планета Земля");
 
     private final String name;
 

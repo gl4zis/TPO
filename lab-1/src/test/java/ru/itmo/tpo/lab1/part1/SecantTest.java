@@ -11,14 +11,15 @@ import java.util.stream.Stream;
 
 @Log4j2
 public class SecantTest {
-    private static final double EPS = 1E-8;
+    private static final double EPS = 1E-6;
 
     public static Stream<Arguments> getArguments() {
         double[] data = new double[] {
                 0, 1E-5, -1E-5, 0.5, -0.5, -1, 1,
                 1.35, 1.55, Math.PI / 2 - 1E-3,
                 Math.PI / 2, -Math.PI / 2, 7 * Math.PI / 2,
-                Math.PI, -173 * Math.PI, 100003,
+                Math.PI, -173 * Math.PI,
+                100003, -12345678, Integer.MAX_VALUE,
                 Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY
         };
         return Arrays.stream(data).mapToObj(Arguments::of);

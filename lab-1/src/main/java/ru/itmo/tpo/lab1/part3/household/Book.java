@@ -25,7 +25,7 @@ public class Book extends Item {
     }
 
     public String readAll() {
-        return String.join(". ", sentences);
+        return String.format("'%s.'", String.join(". ", sentences));
     }
 
     @Override
