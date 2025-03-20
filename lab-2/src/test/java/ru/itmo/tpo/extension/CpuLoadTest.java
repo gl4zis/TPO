@@ -1,4 +1,4 @@
-package ru.itmo.tpo.lab1.extension;
+package ru.itmo.tpo.extension;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

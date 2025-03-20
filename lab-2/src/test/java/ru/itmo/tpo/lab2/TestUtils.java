@@ -14,7 +14,7 @@ public class TestUtils {
     public static final boolean USE_MOCK_COS = false;
     public static final boolean USE_MOCK_COT = false;
     public static final boolean USE_MOCK_SEC = false;
-    public static final boolean USE_MOCK_LN = false;
+    public static final boolean USE_MOCK_LN = true;
     public static final boolean USE_MOCK_LOG = false;
     public static final boolean USE_MOCK_SYSTEM = false;
 
