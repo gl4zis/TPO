@@ -17,6 +17,7 @@ dependencies {
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.36'
     testImplementation 'org.springframework.boot:spring-boot-starter-test:3.4.3'
     testImplementation 'org.awaitility:awaitility:4.3.0'
+    testImplementation 'org.wiremock:wiremock:3.12.1'
 }
 
 test {

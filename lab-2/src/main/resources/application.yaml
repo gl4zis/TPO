@@ -1,0 +1,5 @@
+storage:
+  client:
+    url: http://localhost:8080/store
+    read-timeout-ms: 500
+    connect-timeout-ms: 300
