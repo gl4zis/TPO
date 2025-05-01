@@ -1,0 +1,2 @@
+include 'api-tests'
+include 'e2e-selenide'
