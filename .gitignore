@@ -34,3 +34,6 @@ bin/
 **/build/
 **/gradle/
 **/gradlew*
+
+lab-2/reports/
+**/node_modules/
