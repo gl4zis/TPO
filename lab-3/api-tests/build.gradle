@@ -1,9 +1,9 @@
 plugins {
     id 'java'
-    id 'io.qameta.allure' version '2.12.0'
 }
 
 group = 'ru.itmo.tpo'
+version = 'unspecified'
 
 repositories {
     mavenCentral()
@@ -12,12 +12,8 @@ repositories {
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
-
-    testImplementation 'com.codeborne:selenide:7.9.1'
-    testImplementation 'io.qameta.allure:allure-selenide:2.29.1'
 }
 
 test {
     useJUnitPlatform()
-    ignoreFailures = true
 }

@@ -5,6 +5,8 @@ const mainPage = new MainPage();
 describe('Search tests', () => {
     beforeEach(() => {
         Cypress.on('uncaught:exception', () => { return false });
+        cy.allure().epic("E2E Cypress").feature("Search");
+
         cy.allure().startStep("Visit Multitran");
         mainPage.visit();
         cy.allure().endStep();
@@ -14,7 +16,8 @@ describe('Search tests', () => {
         cy.allure().endStep();
     });
 
-    it('Search word "dog"', () => {
+    it('searchDog', () => {
+        cy.allure().story('Search word "dog"');
         cy.allure().startStep('Type "dog" into search');
         mainPage.typeSearch('dog');
         cy.allure().endStep();
@@ -32,7 +35,8 @@ describe('Search tests', () => {
         cy.allure().endStep();
     });
 
-    it('Empty search', () => {
+    it('emptySearch', () => {
+        cy.allure().story('Empty search');
         cy.allure().startStep('Submit empty search');
         mainPage.submitSearch();
         cy.allure().endStep();

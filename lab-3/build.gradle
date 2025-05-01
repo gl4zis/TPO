@@ -1,0 +1,49 @@
+tasks.register("cypress") {
+    doLast {
+        try {
+            exec {
+                workingDir = file("e2e-cypress")
+                commandLine "/opt/homebrew/bin/npx", "cypress", "run"
+            }
+        } catch (Exception ignored) { }
+    }
+}
+
+tasks.register("copyAllureResults") {
+    dependsOn(':api-tests:test', ':e2e-selenide:test', 'cypress')
+
+    doLast {
+
+        def mergedAllureDir = file("allure-results")
+        mergedAllureDir.mkdirs()
+
+        def allureDirs = [
+                file("e2e-cypress/allure-results"),
+                file("e2e-selenide/build/allure-results")
+        ]
+
+        allureDirs.forEach { dir ->
+            if (dir.exists()) {
+                copy {
+                    from dir
+                    into mergedAllureDir
+                    include '**/*.json', '**/*.png'
+                }
+            }
+        }
+    }
+}
+
+tasks.register("allureServe") {
+    dependsOn('copyAllureResults')
+
+    doLast {
+        exec {
+            commandLine "/opt/homebrew/bin/allure", "generate", "--clean", "allure-results", "-o", "allure-report"
+        }
+
+        exec {
+            commandLine "/opt/homebrew/bin/allure", "open", "allure-report"
+        }
+    }
+}

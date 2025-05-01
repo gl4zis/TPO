@@ -38,6 +38,5 @@ bin/
 lab-2/reports/
 **/node_modules/
 
-lab-3/e2e-cypress/.allure
-lab-3/e2e-cypress/allure-results
-lab-3/e2e-cypress/allure-report
+**/allure-results
+**/allure-report
