@@ -1,5 +1,6 @@
 package ru.itmo.tpo.pages;
 
+import com.codeborne.selenide.ClickOptions;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
@@ -15,7 +16,7 @@ public class SignInPage {
     public void login(String login, String password) {
         loginInput.setValue(login);
         passwordInput.setValue(password);
-        signInButton.click();
+        signInButton.click(ClickOptions.usingDefaultMethod().force());
     }
 
     @Step("Check page has invalid password warning")
