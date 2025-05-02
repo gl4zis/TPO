@@ -1,34 +1,18 @@
 package ru.itmo.tpo.tests;
 
-import com.codeborne.selenide.Configuration;
-import io.qameta.allure.*;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import ru.itmo.tpo.pages.MainPage;
-import ru.itmo.tpo.pages.SignInPage;
 
-@Epic("E2E Selenide")
 @Feature("Login")
-public class LoginTest {
+public class LoginTest extends BaseUiTest {
     private static final String TEST_LOGIN = "gl4zis";
     private static final String TEST_PASSWORD = "niaeHApgcBAA";
 
-    private MainPage mainPage;
-    private SignInPage signInPage;
-
-    @BeforeAll
-    public static void beforeAll() {
-        Configuration.headless = true;
-    }
-
     @BeforeEach
     public void setUp() {
-        mainPage = new MainPage();
-        signInPage = new SignInPage();
-        mainPage.open();
-
         if (mainPage.isUserAuthorized()) {
             mainPage.signOut();
         }

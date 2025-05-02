@@ -6,14 +6,13 @@ import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.*;
 
-public class MainPage {
-    public static final String URL = "https://www.multitran.com/m.exe";
-
-    private final SelenideElement acceptCookieButton = $x("//button[@id='ez-accept-all']");
+public class MainPage extends AbstractPage {
+    public static final String URL = "https://www.multitran.com";
 
     private final SelenideElement signInButton = $x("//a[@href='/m.exe?a=40']");
     private final SelenideElement signOutButton = $x("//a[contains(@href, 'doit')]");
     private final SelenideElement profileButton = $x("//a[contains(@href, '/m.exe?a=116')]");
+    private final SelenideElement languageButton = $x("//a[2]");
 
     @Step("Open main Multitran page")
     public void open() {
@@ -36,9 +35,13 @@ public class MainPage {
         return profileButton.isDisplayed();
     }
 
-    private void acceptCookie() {
-        if (acceptCookieButton.isDisplayed()) {
-            acceptCookieButton.click();
-        }
+    @Step("Got to language page")
+    public void goToLanguagePage() {
+        languageButton.click();
+    }
+
+    @Step("Check chosen interface language")
+    public String getCurrentLanguage() {
+        return languageButton.getText();
     }
 }
