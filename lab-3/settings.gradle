@@ -1,2 +1,2 @@
-include 'api-tests'
+include 'api-karate'
 include 'e2e-selenide'

@@ -10,7 +10,7 @@ tasks.register("cypress") {
 }
 
 tasks.register("copyAllureResults") {
-    dependsOn(':api-tests:test', ':e2e-selenide:test', 'cypress')
+    dependsOn(':api-karate:test', ':e2e-selenide:test', 'cypress')
 
     doLast {
 
@@ -19,7 +19,8 @@ tasks.register("copyAllureResults") {
 
         def allureDirs = [
                 file("e2e-cypress/allure-results"),
-                file("e2e-selenide/build/allure-results")
+                file("e2e-selenide/build/allure-results"),
+                file("api-karate/build/allure-results")
         ]
 
         allureDirs.forEach { dir ->
