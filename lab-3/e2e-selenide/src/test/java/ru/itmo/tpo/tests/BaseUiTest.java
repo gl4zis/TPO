@@ -4,17 +4,16 @@ import com.codeborne.selenide.Configuration;
 import io.qameta.allure.Epic;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import ru.itmo.tpo.pages.DictionaryTermsPage;
-import ru.itmo.tpo.pages.LanguagePage;
-import ru.itmo.tpo.pages.MainPage;
-import ru.itmo.tpo.pages.SignInPage;
+import ru.itmo.tpo.pages.*;
 
 @Epic("E2E Selenide")
 public abstract class BaseUiTest {
     protected MainPage mainPage;
     protected SignInPage signInPage;
     protected LanguagePage languagePage;
-    protected DictionaryTermsPage dictionaryTermsPage;
+    protected DictionarySubjectPage dictionarySubjectPage;
+    protected DictionarySubjectTermPage dictionarySubjectTermPage;
+    protected TranslationPage translationPage;
 
     @BeforeAll
     public static void beforeAll() {
@@ -26,7 +25,10 @@ public abstract class BaseUiTest {
         mainPage = new MainPage();
         signInPage = new SignInPage();
         languagePage = new LanguagePage();
-        dictionaryTermsPage = new DictionaryTermsPage();
+        dictionarySubjectPage = new DictionarySubjectPage();
+        dictionarySubjectTermPage = new DictionarySubjectTermPage();
+        translationPage = new TranslationPage();
+
         mainPage.open();
     }
 }

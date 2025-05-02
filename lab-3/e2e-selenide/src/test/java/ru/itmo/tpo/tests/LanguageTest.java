@@ -14,9 +14,9 @@ public class LanguageTest extends BaseUiTest {
         mainPage.goToLanguagePage();
         languagePage.chooseEnglish();
 
-        Assertions.assertTrue(mainPage.containsText("Popular dictionaries"));
-        Assertions.assertTrue(mainPage.containsText("New dictionaries"));
-        Assertions.assertTrue(mainPage.containsText("Languages"));
+        Assertions.assertEquals("Popular dictionaries", mainPage.getPopularDictionariesText());
+        Assertions.assertEquals("New dictionaries", mainPage.getNewDictionariesText());
+        Assertions.assertEquals("Languages", mainPage.getLanguagesText());
     }
 
     @Test
@@ -25,8 +25,8 @@ public class LanguageTest extends BaseUiTest {
         mainPage.goToLanguagePage();
         languagePage.chooseRussian();
 
-        Assertions.assertTrue(mainPage.containsText("Популярные словари"));
-        Assertions.assertTrue(mainPage.containsText("Новые словари"));
-        Assertions.assertTrue(mainPage.containsText("Языки"));
+        Assertions.assertEquals("Популярные словари", mainPage.getPopularDictionariesText());
+        Assertions.assertEquals("Новые словари", mainPage.getNewDictionariesText());
+        Assertions.assertEquals("Языки", mainPage.getLanguagesText());
     }
 }
