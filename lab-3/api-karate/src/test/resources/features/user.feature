@@ -9,7 +9,7 @@ Feature: User controller
     And header Authorization = managerToken
     When method GET
     Then status 200
-    And match response[0].login == 'manager1'
+    And match response[0].role == 'MANAGER'
 
   Scenario: Try to get staff list with resident credentials
     Given url baseUrl + '/staff'
